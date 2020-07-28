@@ -70,8 +70,9 @@ function draw() {
     ball.velocityX = 0;
     gameState = "serve";
 
-    if (computerScore === 5 || playerScore === 5) {
+    if (computerScore == 5 || playerScore == 5) {
       gameState = "over";
+      endSound.play();
     }
 
   }
@@ -82,7 +83,6 @@ function draw() {
       playerScore = 0;
       computerScore = 0;
     }
-    endSound.loop();
   }
 
   if (ball.isTouching(edges[2]) || ball.isTouching(edges[3])) {
