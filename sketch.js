@@ -8,6 +8,7 @@ var playerScore, computerScore;
 var ball;
 var score;
 var gameState;
+var endSound;
 
 function setup() {
   var canvas = createCanvas(400, 400);
@@ -15,6 +16,8 @@ function setup() {
   playerPaddle = createSprite(380, 200, 10, 100);
   computerPaddle = createSprite(20, 200, 10, 100);
   ball = createSprite(200, 200, 12, 12);
+
+  endSound = loadSound('endState.mp3');
 
   computerScore = 0;
   playerScore = 0;
@@ -79,6 +82,7 @@ function draw() {
       playerScore = 0;
       computerScore = 0;
     }
+    endSound.loop();
   }
 
   if (ball.isTouching(edges[2]) || ball.isTouching(edges[3])) {
